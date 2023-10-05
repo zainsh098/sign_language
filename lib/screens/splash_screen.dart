@@ -6,6 +6,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:sign_language/font_styles.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,7 +16,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool showScaney = false;
+  bool showtitle = false;
   bool showCaption = false;
 
   @override
@@ -23,14 +24,13 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     // Delay the animation of showing "scaney" by 4 seconds (adjust as needed)
-    Future.delayed(const Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 5), () {
       setState(() {
-        showScaney = true;
+        showtitle = true;
       });
     });
 
-
-    Future.delayed(const Duration(seconds: 10), () {
+    Future.delayed(const Duration(seconds: 8), () {
       setState(() {
         // Navigator.push(context, MaterialPageRoute(builder: (context) => const OnboardingScreen(),));
       });
@@ -43,6 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      backgroundColor: Colors.deepPurpleAccent.shade700,
       body: SafeArea(
         child: Stack(
           children: [
@@ -56,15 +57,14 @@ class _SplashScreenState extends State<SplashScreen> {
                       duration: const Duration(seconds: 1),
                       curve: Curves.easeOut,
                       transform: Matrix4.translationValues(
-                          0, showScaney ? -height * 0.10 : 0, 0),
+                          0, showtitle ? -height * 0.10 : 0, 0),
                       child: SizedBox(
-                        height: height * 0.23,
+                        height: height * 0.25,
                         width: width * 0.85,
                         child: Lottie.asset(
                           'assets/sign.json',
                           reverse: true,
                           repeat: false,
-
                           filterQuality: FilterQuality.high,
                         ),
                       ),
@@ -73,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
                 AnimatedOpacity(
                   duration: const Duration(seconds: 1),
-                  opacity: showScaney ? 1.0 : 0.0,
+                  opacity: showtitle ? 1.0 : 0.0,
                   child: Column(
                     children: [
                       Padding(
@@ -83,23 +83,22 @@ class _SplashScreenState extends State<SplashScreen> {
                           children: [
                             AnimatedTextKit(
                               isRepeatingAnimation: false,
-                              pause: const Duration(milliseconds: 600),
                               animatedTexts: [
-
-                                TypewriterAnimatedText(
+                                TyperAnimatedText(
                                   'Gesture Talk',
-                                  textStyle: GoogleFonts.roboto(
-                                    fontSize: 30,
-                                    color: Colors.blue,
-                                  ),
-                                  speed: const Duration(milliseconds: 600),
-                                )
+                                  textStyle: TextStyle(
+                                    fontFamily: FontStyles.CarosSoftBold,
+                                    color: Colors.white,
+                                    fontSize: 30
+
+                                  ),speed: Duration(milliseconds: 600)
+
+                                ),
                               ],
                             ),
                             const SizedBox(
                               width: 3,
                             ),
-
                           ],
                         ),
                       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sign_language/screens/home_screen.dart';
 import 'package:sign_language/screens/splash_screen.dart';
 
 void main() {
@@ -16,10 +17,10 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Sign',
       theme: ThemeData(
 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const SplashScreen(),
+      home: const HomeScreen(),
     );
   }
 }
