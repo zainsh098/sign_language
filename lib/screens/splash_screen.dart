@@ -23,18 +23,14 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
     // Delay the animation of showing "scaney" by 4 seconds (adjust as needed)
-    Future.delayed(const Duration(seconds: 3), () {
+    Future.delayed(const Duration(seconds: 10), () {
       setState(() {
         showScaney = true;
       });
     });
 
-    Future.delayed(const Duration(seconds: 2), () {
-      setState(() {
-        showCaption = true;
-      });
-    });
-    Future.delayed(const Duration(seconds: 7), () {
+
+    Future.delayed(const Duration(seconds: 10), () {
       setState(() {
         // Navigator.push(context, MaterialPageRoute(builder: (context) => const OnboardingScreen(),));
       });
@@ -68,6 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           'assets/sign.json',
                           reverse: true,
                           repeat: false,
+
                           filterQuality: FilterQuality.high,
                         ),
                       ),
@@ -88,33 +85,21 @@ class _SplashScreenState extends State<SplashScreen> {
                               isRepeatingAnimation: false,
                               pause: const Duration(milliseconds: 600),
                               animatedTexts: [
-                                WavyAnimatedText(
-                                  'scaney',
-                                  // textStyle: GoogleFonts.roboto(
-                                  //   fontSize: 30,
-                                  //   color: Colors.blue,
-                                  // ),
-                                  speed: const Duration(milliseconds: 900),
+
+                                TypewriterAnimatedText(
+                                  'Gesture Talk',
+                                  textStyle: GoogleFonts.roboto(
+                                    fontSize: 30,
+                                    color: Colors.blue,
+                                  ),
+                                  speed: const Duration(milliseconds: 600),
                                 )
                               ],
                             ),
                             const SizedBox(
                               width: 3,
                             ),
-                            AnimatedTextKit(
-                              isRepeatingAnimation: false,
-                              pause: const Duration(milliseconds: 600),
-                              animatedTexts: [
-                                WavyAnimatedText(
-                                  '.Z',
-                                  // textStyle: GoogleFonts.roboto(
-                                  //   fontSize: 30,
-                                  //   color: Colors.blue,
-                                  // ),
-                                  speed: const Duration(milliseconds: 2800),
-                                ),
-                              ],
-                            ),
+
                           ],
                         ),
                       ),
