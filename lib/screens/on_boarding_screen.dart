@@ -151,6 +151,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
               SizedBox(
                 height: 20,
               ),
+
               Text(
                 'Bridge the communication gap easily with our Text-to-Speech.\nSign and speak with ease.',
                 textAlign: TextAlign.center,

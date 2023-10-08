@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:sign_language/screens/bottom_sheet/bottom_sheet.dart';
 import 'package:sign_language/screens/home_screen.dart';
 import 'package:sign_language/screens/on_boarding_screen.dart';
+import 'package:sign_language/screens/sign-to_text.dart';
 import 'package:sign_language/screens/splash_screen.dart';
 
 void main() {
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      home: const OnBoardingScreen(),
+      home: const BottomSheetBarPage(),
     );
   }
 }
