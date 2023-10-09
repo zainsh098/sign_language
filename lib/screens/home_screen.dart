@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sign_language/font_styles.dart';
+import 'package:sign_language/screens/bottom_sheet/bottom_sheet.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -26,7 +27,7 @@ backgroundColor: Colors.grey.shade100,
                 RichText(
                   text:   TextSpan(
                     children: [
-                      TextSpan(
+                      const TextSpan(
                         text: 'S',
                         style: TextStyle(
                           fontFamily: FontStyles.CarosSoftBold,
@@ -34,7 +35,7 @@ backgroundColor: Colors.grey.shade100,
                           color: Colors.black, // Customize the color
                         ),
                       ),
-                      TextSpan(
+                      const TextSpan(
                         text: 'ign',
                         style: TextStyle(
                           fontFamily: FontStyles.CarosSoftBold,
@@ -42,7 +43,7 @@ backgroundColor: Colors.grey.shade100,
                           color: Colors.red, // Customize the color
                         ),
                       ),
-                      TextSpan(
+                      const TextSpan(
                         text: ' L',
                         style: TextStyle(
                           fontFamily: FontStyles.CarosSoftBold,
@@ -155,7 +156,11 @@ backgroundColor: Colors.grey.shade100,
                     shadowColor: MaterialStateProperty.all(Colors.blue.shade200),
                     backgroundColor: MaterialStateProperty.all(Colors.white),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BottomSheetBarPage(),));
+
+
+                  },
                   child: Column(children: [
                     const SizedBox(height: 30,),
                     Row(
