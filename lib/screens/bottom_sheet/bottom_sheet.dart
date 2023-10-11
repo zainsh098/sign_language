@@ -1,14 +1,18 @@
 import 'package:bottom_sheet_bar/bottom_sheet_bar.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:sign_language/screens/bottom_sheet/camera.dart';
 
 import '../../font_styles.dart';
 import '../constants.dart';
 
 class BottomSheetBarPage extends StatefulWidget {
   final String title;
+  final List<CameraDescription> cameras;
 
-  const BottomSheetBarPage({Key? key, this.title = ''}) : super(key: key);
+  const BottomSheetBarPage({Key? key, this.title = '',required this.cameras}) : super(key: key);
 
   @override
   BottomSheetBarPageState createState() => BottomSheetBarPageState();
@@ -17,17 +21,35 @@ class BottomSheetBarPage extends StatefulWidget {
 class BottomSheetBarPageState extends State<BottomSheetBarPage> {
   final _bsbController = BottomSheetBarController();
 
+
+  List<CameraDescription>? _availableCameras;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializeCamera();
+  }
+
+  Future<void> _initializeCamera() async {
+    _availableCameras = await availableCameras();
+  }
+
+
+
+
   @override
   Widget build(BuildContext context) => Scaffold(
-        backgroundColor: Colors.blueGrey.shade50,
+
         body: SafeArea(
           child: BottomSheetBar(
+            backdropColor: Colors.grey.shade50.withOpacity(0.4),
+
             controller: _bsbController,
             borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(32.0),
               topRight: Radius.circular(32.0),
             ),
-            color: Colors.blue.shade100,
+            color: Colors.blueAccent.shade100,
             borderRadiusExpanded: const BorderRadius.only(
               topLeft: Radius.circular(20.0),
               topRight: Radius.circular(20.0),
@@ -42,7 +64,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
             ],
             expandedBuilder: (scrollController) {
               return Material(
-                color: Colors.grey.shade200,
+                color: Colors.blue.shade200,
                 child: CustomScrollView(
                   controller: scrollController,
                   shrinkWrap: true,
@@ -73,7 +95,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                             children: [
                               ElevatedButton(        style: ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(
-                                      Colors1.on_boardingStyleColorButton),
+                                    Colors.blueAccent.shade100,),
                                   minimumSize: MaterialStatePropertyAll(
                                     Size(180, 40),
                                   ),
@@ -85,13 +107,13 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                                 child: const Text('Speech',style:  TextStyle(
                                   fontFamily: FontStyles.CarosSoftBold,
                                   fontSize: 16,
-                                  color: Colors.black, // Customize the color
+                                  color: Colors.white, // Customize the color
                                 ),),
                               ),
                               ElevatedButton(
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(
-                                      Colors1.on_boardingStyleColorButton),
+                                    Colors.blueAccent.shade100,),
                                   minimumSize: MaterialStatePropertyAll(
                                     Size(180, 40),
                                   ),
@@ -103,7 +125,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                                 child: const Text('Translation',style:  TextStyle(
                                   fontFamily: FontStyles.CarosSoftBold,
                                   fontSize: 16,
-                                  color: Colors.black, // Customize the color
+                                  color: Colors.white, // Customize the color
                                 ),),
                               ),
                             ],
@@ -135,20 +157,14 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
             },
             collapsed: TextButton(
               onPressed: () => _bsbController.expand(),
-              child: const Text(
-                'Click  to expand',
-                style: TextStyle(color: Colors.black),
+              child: const Icon(FontAwesomeIcons.upLong,color: Colors.black,size: 26,)
+            ),
+            body: _availableCameras != null
+                ? CameraApp1(cameras: _availableCameras!)
+                : Center(child: CircularProgressIndicator()),
               ),
             ),
-            body: Center(
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.4,
-                width: MediaQuery.of(context).size.width * .90,
-                color: Colors.amber,
-                child: const Text('gi'),
-              ),
-            ),
-          ),
-        ),
-      );
+
+
+  );
 }

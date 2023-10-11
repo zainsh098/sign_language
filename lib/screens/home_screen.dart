@@ -157,7 +157,7 @@ backgroundColor: Colors.grey.shade100,
                     backgroundColor: MaterialStateProperty.all(Colors.white),
                   ),
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BottomSheetBarPage(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BottomSheetBarPage(cameras: [],),));
 
 
                   },
