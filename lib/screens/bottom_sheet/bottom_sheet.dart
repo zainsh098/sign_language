@@ -42,7 +42,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
             ],
             expandedBuilder: (scrollController) {
               return Material(
-                color: Colors.blue.shade50,
+                color: Colors.grey.shade200,
                 child: CustomScrollView(
                   controller: scrollController,
                   shrinkWrap: true,
@@ -60,7 +60,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(6),
                                     borderSide:
-                                        const BorderSide(color: Colors.blue)),
+                                        BorderSide(color: Colors.blueGrey.shade200)),
                                 border: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                         color: Colors.greenAccent),
@@ -73,7 +73,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                             children: [
                               ElevatedButton(        style: ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(
-                                      Colors.red.shade200),
+                                      Colors1.on_boardingStyleColorButton),
                                   minimumSize: MaterialStatePropertyAll(
                                     Size(180, 40),
                                   ),
@@ -85,13 +85,13 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                                 child: const Text('Speech',style:  TextStyle(
                                   fontFamily: FontStyles.CarosSoftBold,
                                   fontSize: 16,
-                                  color: Colors.white, // Customize the color
+                                  color: Colors.black, // Customize the color
                                 ),),
                               ),
                               ElevatedButton(
                                 style: ButtonStyle(
                                   backgroundColor: MaterialStatePropertyAll(
-                                      Colors.red.shade200),
+                                      Colors1.on_boardingStyleColorButton),
                                   minimumSize: MaterialStatePropertyAll(
                                     Size(180, 40),
                                   ),
@@ -103,7 +103,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                                 child: const Text('Translation',style:  TextStyle(
                                   fontFamily: FontStyles.CarosSoftBold,
                                   fontSize: 16,
-                                  color: Colors.white, // Customize the color
+                                  color: Colors.black, // Customize the color
                                 ),),
                               ),
                             ],
@@ -118,7 +118,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(6),
                                     borderSide:
-                                        const BorderSide(color: Colors.blue)),
+                                       BorderSide(color: Colors.blueGrey.shade200)),
                                 border: OutlineInputBorder(
                                     borderSide: const BorderSide(
                                         color: Colors.greenAccent),
