@@ -2,7 +2,7 @@
 
 import 'dart:ui';
 
-class Colors
+class Colors1
 {
 
   static  const Color home_backgroundColor=Color(0xF5F5F5FF);
