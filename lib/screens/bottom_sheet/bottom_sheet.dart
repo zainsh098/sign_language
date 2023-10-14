@@ -108,7 +108,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                                   SizedBox(height: 10,),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 10,right: 10,),
-                                    child: Text('Translated Text ',textAlign: TextAlign.center,
+                                    child: Text('Predicted Text will display here',textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 15,fontFamily: FontStyles.CarosSoftMedium,color: Colors.black,),),
                                   ),
                                   SizedBox(height: 10,),
@@ -177,7 +177,7 @@ class BottomSheetBarPageState extends State<BottomSheetBarPage> {
                                   SizedBox(height: 15,),
                                   Padding(
                                     padding: const EdgeInsets.only(left: 5,right: 10,),
-                                    child: Text('Predicted Text will display here  ',textAlign: TextAlign.center,
+                                    child: Text('Translated Text',textAlign: TextAlign.center,
                                       style: TextStyle(fontSize: 15,fontFamily: FontStyles.CarosSoftMedium,color: Colors.black,),),
                                   ),
                                   SizedBox(height: 10,),
