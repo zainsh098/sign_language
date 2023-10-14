@@ -66,36 +66,38 @@ class _CameraAppState extends State<CameraApp1> {
     return  Scaffold(
       backgroundColor: Colors.grey.shade50,
 
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-
-          children: [
+        body: SafeArea(
+          child: Column(
 
 
+            children: [
 
-            Padding(
-              padding: const EdgeInsets.only(bottom: 170),
-              child: Center(
-                child: Container(
-                  width: width * 0.97,
-                  height: height * 0.54,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0), // Adjust as needed
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.blue.withOpacity(0.3),
-                        blurRadius: 10,
-                      ),
-                    ],
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10.0), // Adjust as needed
-                    child: CameraPreview(_controller),
+
+
+              Padding(
+                padding: const EdgeInsets.only(bottom: 5),
+                child: Center(
+                  child: Container(
+                    width: width * 0.99,
+                    height: height * 0.8,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5), // Adjust as needed
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.blue.withOpacity(0.3),
+                          blurRadius: 10,
+                        ),
+                      ],
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(5), // Adjust as needed
+                      child: CameraPreview(_controller),
+                    ),
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
 
